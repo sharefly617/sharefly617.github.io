@@ -145,21 +145,17 @@
 </nav>
 
         <div id="main" >
-            <div class ="post_page_title_img" style="height: 25rem;background-image: url(https://tva2.sinaimg.cn/large/94aee95bgy1h2t32urys8j21z414014l.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
-                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >正态分布推导瑞利分布，瑞利信道的模型</h2></a>
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url(https://tvax3.sinaimg.cn/large/94aee95bgy1h2tsirg24xj22yo1o0gti.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >复随机变量</h2></a>
             </div>
             <!-- Post -->
             <div class="typo" style="padding: 3rem;">
-                <h2 id="从高斯分布推导瑞利分布"><a href="#从高斯分布推导瑞利分布" class="headerlink" title="从高斯分布推导瑞利分布"></a>从高斯分布推导瑞利分布</h2><p>瑞利分布是无线通信中常见的信道模型，这里就来推导一下，所谓瑞利分布就是两个垂直分量服从独立且相同的标准高斯分布叠加之后的模。先来看看高斯分布的表达式</p>
-<script type="math/tex; mode=display">f(x) = \frac{1}{\sqrt{2\pi}\sigma}\exp\left(-\frac{(x-\mu)^2}{2{\sigma}^2}\right)</script><p>其中$\sigma$是分布的方差，$\mu$是分布的均值。<br>假设$X_1,X_2\sim N(0,{\sigma}^2)$,$X^2 = {X_1}^2+{X_2}^2$,现在需要推导$X$的概率密度函数。$x_1$和$x_2$的联合概率密度 如下：</p>
-<script type="math/tex; mode=display">\begin{aligned}
-f(x_1,x_2) = \frac{1}{2\pi\sigma^2}\exp\left(-\frac{x_1^2+x_2^2}{2{\sigma}^2}\right).
-\end{aligned}</script><script type="math/tex; mode=display">\begin{aligned}
-F(X)=P(X\leq x)&= P(\sqrt{ {X_1}^2+{X_2}^2}\leq x)\\
-&=\iint\limits_ { {x_1}^2+{x_2}^2{\leq}x}\frac{1}{2\pi\sigma^2}\exp\left(-\frac{x_1^2+x_2^2}{2{\sigma}^2}\right)dx_1dx_2\\
-&=\frac{1}{2\pi\sigma^2}\int_{0}^{2\pi}d\theta\int_{0}^{x}r\exp\left(-\frac{r^2}{2{\sigma}^2}\right)dr\\
-&=1-\exp\left(-\frac{x^2}{2{\sigma}^2}\right)
-\end{aligned}</script><p>此时$f(x)=F’(x)=\frac{x}{ {\sigma}^2}\exp\left(-\frac{x^2}{2{\sigma}^2}\right)$,注意上述积分的定义域是$x\geq0$</p>
+                <h2 id="Proper-Complex-Random-Vectors"><a href="#Proper-Complex-Random-Vectors" class="headerlink" title="Proper Complex Random Vectors"></a>Proper Complex Random Vectors</h2><p><strong>定义：</strong><br>&emsp;当一个复随机矢量$\mathbf{Z}$满足以下条件时，我们称它为<strong>Proper</strong>:</p>
+<ol>
+<li>均值为0</li>
+<li>方差为有限值(不是$\pm\infty$)</li>
+<li>$\mathrm{E}[\mathbf{ZZ}^T]=0$</li>
+</ol>
 
             </div>
 
@@ -222,8 +218,8 @@ $('.btn_click_load').click(function() {
 -->
 <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'http://example.com/2022/06/01/%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E6%8E%A8%E5%AF%BC%E7%91%9E%E5%88%A9%E5%88%86%E5%B8%83%EF%BC%8C%E7%91%9E%E5%88%A9%E4%BF%A1%E9%81%93%E7%9A%84%E6%A8%A1%E5%9E%8B/';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://example.com/2022/06/01/%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E6%8E%A8%E5%AF%BC%E7%91%9E%E5%88%A9%E5%88%86%E5%B8%83%EF%BC%8C%E7%91%9E%E5%88%A9%E4%BF%A1%E9%81%93%E7%9A%84%E6%A8%A1%E5%9E%8B/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://example.com/2022/06/02/%E5%A4%8D%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://example.com/2022/06/02/%E5%A4%8D%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 </script>
 
