@@ -145,21 +145,17 @@
 </nav>
 
         <div id="main" >
-            <div class ="post_page_title_img" style="height: 25rem;background-image: url(https://tva2.sinaimg.cn/large/94aee95bgy1h2t32urys8j21z414014l.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
-                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >正态分布推导瑞利分布，瑞利信道的模型</h2></a>
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url(https://tva3.sinaimg.cn/mw690/94aee95bgy1h2tsk2u7lej22bc1jk7nx.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >Trace—σ代数的证明</h2></a>
             </div>
             <!-- Post -->
             <div class="typo" style="padding: 3rem;">
-                <h2 id="从高斯分布推导瑞利分布"><a href="#从高斯分布推导瑞利分布" class="headerlink" title="从高斯分布推导瑞利分布"></a>从高斯分布推导瑞利分布</h2><p>瑞利分布是无线通信中常见的信道模型，这里就来推导一下，所谓瑞利分布就是两个垂直分量服从独立且相同的标准高斯分布叠加之后的模。先来看看高斯分布的表达式</p>
-<script type="math/tex; mode=display">f(x) = \frac{1}{\sqrt{2\pi}\sigma}\exp\left(-\frac{(x-\mu)^2}{2{\sigma}^2}\right)</script><p>其中$\sigma$是分布的方差，$\mu$是分布的均值。<br>假设$X_1,X_2\sim N(0,{\sigma}^2)$,$X^2 = {X_1}^2+{X_2}^2$,现在需要推导$X$的概率密度函数。$x_1$和$x_2$的联合概率密度 如下：</p>
-<script type="math/tex; mode=display">\begin{aligned}
-f(x_1,x_2) = \frac{1}{2\pi\sigma^2}\exp\left(-\frac{x_1^2+x_2^2}{2{\sigma}^2}\right).
-\end{aligned}</script><script type="math/tex; mode=display">\begin{aligned}
-F(X)=P(X\leq x)&= P(\sqrt{ {X_1}^2+{X_2}^2}\leq x)\\
-&=\iint\limits_ { {x_1}^2+{x_2}^2{\leq}x}\frac{1}{2\pi\sigma^2}\exp\left(-\frac{x_1^2+x_2^2}{2{\sigma}^2}\right)dx_1dx_2\\
-&=\frac{1}{2\pi\sigma^2}\int_{0}^{2\pi}d\theta\int_{0}^{x}r\exp\left(-\frac{r^2}{2{\sigma}^2}\right)dr\\
-&=1-\exp\left(-\frac{x^2}{2{\sigma}^2}\right)
-\end{aligned}</script><p>此时$f(x)=F’(x)=\frac{x}{ {\sigma}^2}\exp\left(-\frac{x^2}{2{\sigma}^2}\right)$,注意上述积分的定义域是$x\geq0$</p>
+                <p>本文旨在证明 Trace $\sigma$ algebra 是一个algebra。Trace $\sigma$ algebra 的定义是：</p>
+<blockquote>
+<p>假设$E\subseteq  X$，且$\mathscr{A}$是X上的$\sigma$代数，那么<br>$\mathscr{A}_{E}$ $\vcentcolon=$ $\{E \cap{A} , A\in\mathscr{A}\}$是一个$E$上的$\sigma$ algebra。</p>
+<p>证明，根据定义的三条，第一条$E\in\mathscr{A}_{E}$明显满足。<br>第二条，需要证明$E$的子集$A\in\mathscr{A}_{E}$那么$E\setminus A\in\mathscr{A}_{E}$<br>假设一些S=E$\cap$A$,$A$\in$$\mathscr{A}_E$，因此，$X\setminus S\in\mathscr{A}$,那么根据定义$E\cap(X\setminus S)\in\mathscr{A}_E$而$E\cap(X\setminus S)=(E\cap X)\setminus S=E\setminus S$,所以$E\setminus S \in \mathscr{A}_E$。</p>
+</blockquote>
+<p>第三条需要证明的条件是：$A_i\in \mathscr{A}_E,那么\cup _{i\in\mathbb{N}}A_i\in\mathscr{A}_E$。<br>证明过程如下：<br>根据定义假设$S_i=E\cap A_i$其中$A_i \in \mathscr{A}$,那么$\cup S_i=E\cap \{\cup A_i\}$，由于$\mathscr{A}$是$\sigma$-algebra，所以$\{\cup A_i\} \in \mathscr{A}$ ,根据定义$\cup S_i \in \mathscr{A}_E$.</p>
 
             </div>
 
@@ -222,8 +218,8 @@ $('.btn_click_load').click(function() {
 -->
 <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'http://example.com/2022/06/01/%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E6%8E%A8%E5%AF%BC%E7%91%9E%E5%88%A9%E5%88%86%E5%B8%83%EF%BC%8C%E7%91%9E%E5%88%A9%E4%BF%A1%E9%81%93%E7%9A%84%E6%A8%A1%E5%9E%8B/';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://example.com/2022/06/01/%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E6%8E%A8%E5%AF%BC%E7%91%9E%E5%88%A9%E5%88%86%E5%B8%83%EF%BC%8C%E7%91%9E%E5%88%A9%E4%BF%A1%E9%81%93%E7%9A%84%E6%A8%A1%E5%9E%8B/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://example.com/2022/06/02/Trace%E2%80%94%CF%83%E4%BB%A3%E6%95%B0%E7%9A%84%E8%AF%81%E6%98%8E/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://example.com/2022/06/02/Trace%E2%80%94%CF%83%E4%BB%A3%E6%95%B0%E7%9A%84%E8%AF%81%E6%98%8E/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 </script>
 

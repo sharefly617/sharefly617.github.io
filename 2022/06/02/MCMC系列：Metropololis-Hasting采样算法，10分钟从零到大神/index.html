@@ -145,21 +145,36 @@
 </nav>
 
         <div id="main" >
-            <div class ="post_page_title_img" style="height: 25rem;background-image: url(https://tva2.sinaimg.cn/large/94aee95bgy1h2t32urys8j21z414014l.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
-                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >正态分布推导瑞利分布，瑞利信道的模型</h2></a>
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url(https://tva1.sinaimg.cn/mw690/94aee95bgy1h2tsjem77mj21hc0u0hdt.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >MCMC系列：Metropololis-Hasting采样算法，10分钟从零到大神</h2></a>
             </div>
             <!-- Post -->
             <div class="typo" style="padding: 3rem;">
-                <h2 id="从高斯分布推导瑞利分布"><a href="#从高斯分布推导瑞利分布" class="headerlink" title="从高斯分布推导瑞利分布"></a>从高斯分布推导瑞利分布</h2><p>瑞利分布是无线通信中常见的信道模型，这里就来推导一下，所谓瑞利分布就是两个垂直分量服从独立且相同的标准高斯分布叠加之后的模。先来看看高斯分布的表达式</p>
-<script type="math/tex; mode=display">f(x) = \frac{1}{\sqrt{2\pi}\sigma}\exp\left(-\frac{(x-\mu)^2}{2{\sigma}^2}\right)</script><p>其中$\sigma$是分布的方差，$\mu$是分布的均值。<br>假设$X_1,X_2\sim N(0,{\sigma}^2)$,$X^2 = {X_1}^2+{X_2}^2$,现在需要推导$X$的概率密度函数。$x_1$和$x_2$的联合概率密度 如下：</p>
-<script type="math/tex; mode=display">\begin{aligned}
-f(x_1,x_2) = \frac{1}{2\pi\sigma^2}\exp\left(-\frac{x_1^2+x_2^2}{2{\sigma}^2}\right).
-\end{aligned}</script><script type="math/tex; mode=display">\begin{aligned}
-F(X)=P(X\leq x)&= P(\sqrt{ {X_1}^2+{X_2}^2}\leq x)\\
-&=\iint\limits_ { {x_1}^2+{x_2}^2{\leq}x}\frac{1}{2\pi\sigma^2}\exp\left(-\frac{x_1^2+x_2^2}{2{\sigma}^2}\right)dx_1dx_2\\
-&=\frac{1}{2\pi\sigma^2}\int_{0}^{2\pi}d\theta\int_{0}^{x}r\exp\left(-\frac{r^2}{2{\sigma}^2}\right)dr\\
-&=1-\exp\left(-\frac{x^2}{2{\sigma}^2}\right)
-\end{aligned}</script><p>此时$f(x)=F’(x)=\frac{x}{ {\sigma}^2}\exp\left(-\frac{x^2}{2{\sigma}^2}\right)$,注意上述积分的定义域是$x\geq0$</p>
+                <h1 id="MCMC"><a href="#MCMC" class="headerlink" title="MCMC"></a>MCMC</h1><p>面对已知的复杂分布时，仅知其表达式，对其进行采样变得格外棘手（甚至无法采样）。在仿真中，各工具包会提供一些标准分布，MCMC采样方法允许我们通过构造一个马尔科夫链，并借助标准分布，使得以某种接受概率采样的新马尔科夫链的平稳分布为我们的目标复杂分布。</p>
+<h2 id="Metropolis-Hasting"><a href="#Metropolis-Hasting" class="headerlink" title="Metropolis-Hasting"></a>Metropolis-Hasting</h2><p>MCMC中很重要且很实用的一个采样算法就是MH算法。</p>
+<h3 id="MH算法流程-怎么做"><a href="#MH算法流程-怎么做" class="headerlink" title="MH算法流程(怎么做)"></a>MH算法流程(怎么做)</h3><p><img src="https://img-blog.csdnimg.cn/da80fe5bb4c94854b8a02a35b5cb1702.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NoYXJlNzI3MTg2NjMw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<h3 id="这么做为什么行-MH推导"><a href="#这么做为什么行-MH推导" class="headerlink" title="这么做为什么行(MH推导)"></a>这么做为什么行(MH推导)</h3><h4 id="从马尔可夫链谈起-重点版"><a href="#从马尔可夫链谈起-重点版" class="headerlink" title="从马尔可夫链谈起(重点版)"></a>从马尔可夫链谈起(重点版)</h4><p>如何构建一个平稳分布为目标分布马尔科夫链？可在此简要介绍会用到的马尔可夫链的重要性质(假设读者了解马尔科夫链的基本概念)：</p>
+<p><em>稳态分布</em>  <strong>什么是稳态分布呢(stationary/invariant distribution)?</strong> 定义$(X_n)_{n\geq 0}$为马氏链$(\lambda,P)$。当马尔可夫链$(X_n)_{n\geq 0}$的状态分布为$\lambda$时，此时若$\pi$满足</p>
+<script type="math/tex; mode=display">\pi P=\pi</script><p>那么$pi$则是该马尔科夫链的平稳分布。通俗理解即为某一时刻马尔科夫链的状态服从某一个分布之后，再进行转移，其状态仍然服从此分布(服从分布不是状态保持不变)。至此，已经阐明为何可以使用马尔可夫链进行采样。</p>
+<p>但是如何找到平稳分布呢？MH中利用了马尔科夫链的细致平衡方程(detailed<br>balance equations),满足细致平衡方程的的分布就是马氏链的平稳分布。</p>
+<p><strong>定理 1.1</strong>.<br><em>如果存在一个分布$\pi$满足<script type="math/tex">\pi_i P_{ij} = \pi_j P_{ji},</script> 那么$\pi$就是该马氏链的平稳分布。</em></p>
+<p><strong>Proof.</strong> <em><script type="math/tex">\sum_{i} \pi_i P_{ij}=\sum_{i}\pi_j P_{ji}=\pi_j</script> ◻</em></p>
+<h4 id="回到MH算法（Metropolis-Hastings-algorithm）"><a href="#回到MH算法（Metropolis-Hastings-algorithm）" class="headerlink" title="回到MH算法（Metropolis Hastings algorithm）"></a>回到MH算法（Metropolis Hastings algorithm）</h4><p>介绍完马氏链的平稳分布后，可以发现，MH算法就是在构造马氏链满足细致平稳条件的转移概率，使其平稳分布为我们的目标分布。在中的第5行构造了转移的接受概率，马氏链的转移分布由提议分布$q$决定，此时$P_{ij}=q(x_j|x_i)$。考虑$\alpha_{ij}&lt;1$的情况，有</p>
+<script type="math/tex; mode=display">p_i Q_{ij} = p_i P_{ij} \alpha_{ij} =p_i q(x_j|x_i) \frac{p_jq(x_i|x_j)}{p_i q(x_j|x_i)}=p_jq(x_i|x_j)\alpha_{ji}=p_j Q_{ji}</script><p>可以发现这样构造出来的新马氏链(实际上叫做MH链或者MH马氏链)的平稳分布就是需要被采样的目标分布了。那么对这个MH链采样一段时间后(burn<br>in)，MH链会收敛到平稳分布。</p>
+<h4 id="问题再现，再次回到马氏链"><a href="#问题再现，再次回到马氏链" class="headerlink" title="问题再现，再次回到马氏链"></a>问题再现，再次回到马氏链</h4><p>读者不免会产生一定的疑问:对于一个马氏链来说平稳分布一定存在且唯一吗？会不会存在一个马氏链有多个平稳分布的情况呢？老规矩，先说结论：对于有限空间的马尔科夫链，平稳分布一定存在，对于不可约的(状态互通)马尔科夫链，平稳分布就是唯一的。</p>
+<p><strong>Proof.</strong><br><strong>声明！本证明已掏空笔者！！</strong><br>首先解释何为<strong>不可约(状态互通)</strong>，即状态之间能够互通。从状态$i$经过$n$步之后可以到达状态$j$，即$Pr(x_n=j|x_0=i,n&lt;-\infty)&gt;0$。状态矩阵$P^n$中的每一个元素都大于$0$，所以，不可约马氏链的状态矩阵是一个正则矩阵(regular matrix)。[<em>$A$ is called regular if for some $k&gt;1$,$A^k&gt;0$.</em>]根据Perron-Frobenius定理，若一个矩阵$A$是正则矩阵，则</p>
+<ol>
+<li><p>$A$存在一个正实特征值$\lambda_{PF}$，其对应的左、右特征向量也均为正特征向量。</p>
+</li>
+<li><p>$A$的所有其他特征值都存在$\lambda_i &lt; \lambda_{PF}$。</p>
+</li>
+<li><p>$\lambda_{PF}=1$，且其左、右特征向量的模为$1$。</p>
+</li>
+</ol>
+<p>那么马氏链的转移矩阵$P$只有一个特征向量$\pi$能够满足</p>
+<p><script type="math/tex">\pi P=1\cdot\pi</script> ◻<br>证明了不可约的马氏链只一个单独的平稳分布之后，就容易理解为什么满足细致平衡方程的分布就是批评翁分布。至此，MH为什么可行就得到了证明。</p>
+<h4 id="真的结束了吗？补充证明"><a href="#真的结束了吗？补充证明" class="headerlink" title="真的结束了吗？补充证明"></a>真的结束了吗？补充证明</h4><p>真的结束了吗。不妨思考，需要被采样的空间是一个有限空间吗？对目标分布进行采样，明明可以得到无数的采样值。这样之前证明的前提便全部被推翻了呀！<br>在此，引入新的概念，马尔科夫链的另一种分类，countable-state<br>chain，旨在描述类似连续分布采样过程的离散时间无限空间的马尔科夫链。那无限空间的马氏链仍然只有唯一的平稳分布吗。结论：对于不可约的马尔科夫链，如果$\pi P=\pi$有解，那么这个解是唯一的。相反，如果马氏链是正常反的，那么就一定有解。在此不对上述结论进行证明，有意者可以参考\<Stochastic
+Processes:Theory for Applications>的第298页的定理6.3.8.</p>
 
             </div>
 
@@ -222,8 +237,8 @@ $('.btn_click_load').click(function() {
 -->
 <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'http://example.com/2022/06/01/%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E6%8E%A8%E5%AF%BC%E7%91%9E%E5%88%A9%E5%88%86%E5%B8%83%EF%BC%8C%E7%91%9E%E5%88%A9%E4%BF%A1%E9%81%93%E7%9A%84%E6%A8%A1%E5%9E%8B/';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://example.com/2022/06/01/%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E6%8E%A8%E5%AF%BC%E7%91%9E%E5%88%A9%E5%88%86%E5%B8%83%EF%BC%8C%E7%91%9E%E5%88%A9%E4%BF%A1%E9%81%93%E7%9A%84%E6%A8%A1%E5%9E%8B/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://example.com/2022/06/02/MCMC%E7%B3%BB%E5%88%97%EF%BC%9AMetropololis-Hasting%E9%87%87%E6%A0%B7%E7%AE%97%E6%B3%95%EF%BC%8C10%E5%88%86%E9%92%9F%E4%BB%8E%E9%9B%B6%E5%88%B0%E5%A4%A7%E7%A5%9E/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://example.com/2022/06/02/MCMC%E7%B3%BB%E5%88%97%EF%BC%9AMetropololis-Hasting%E9%87%87%E6%A0%B7%E7%AE%97%E6%B3%95%EF%BC%8C10%E5%88%86%E9%92%9F%E4%BB%8E%E9%9B%B6%E5%88%B0%E5%A4%A7%E7%A5%9E/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 </script>
 
