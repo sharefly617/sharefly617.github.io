@@ -4,7 +4,7 @@ title:  小白也能看懂的卷积！
 date: 2022-06-06
 tags:
 categories: 信号
-thumbnail: https://tva1.sinaimg.cn/large/94aee95bgy1h2tshnxn94j21hc0u04qp.jpg
+thumbnail: https://tva2.sinaimg.cn/mw690/94aee95bgy1h317itgnzpj24mo2r5x6p.jpg
 mathjax: true
 ---
 
@@ -15,22 +15,22 @@ mathjax: true
 
 &emsp;你叫张三，是游戏里的主角，武器是一把菜刀。随着打怪升级，菜刀的攻击属性也越来越高，直到菜刀升到了第五级，菜刀便拥有了新的技能：毒性伤害，可以对对手造成持续性的伤害。不过伤害会随着时间的增加逐渐减少，单位力度造成的伤害随时间的变化如， 暂且叫它$h[t]$
 
-![毒性伤害](pic/signal/毒性伤害.svg)
+![毒性伤害](https://tva2.sinaimg.cn/mw690/94aee95bgy1h317ek06skj20k00g0wff.jpg)
 
 &emsp;每一次出招的伤害和出招的力度有关，力度越大，造成的总伤害也越大。$$\text{总伤害}=\text{力度}\times \text{单位力度伤害}$$
 随着技能升级，你，张三，在$30$级的时候学会了一个新连招---------乱披风刀法。这套连招拥有4次攻击，可以表示成,暂且叫它$x[t]$。
-![乱披风刀法攻击组成](pic/signal/乱披风刀法.svg )
+![乱披风刀法攻击组成](https://tva3.sinaimg.cn/mw690/94aee95bgy1h317ertsqaj20k00g0jsb.jpg)
 
 可以看到，在使出乱披风刀法连招的第$0$秒，第$1$秒，第$3$秒和第$6$秒都有一次攻击。那么问题来了，在使用毒性菜刀配合乱披风刀法攻击的时候，这一套连击总共能给boss带来多大的伤害呢。
 
 第一个想法：可以把连招中的4次攻击拆开单看，计算每一次单独攻击造成的伤害，然后求和就行。分别来看看4次攻击的伤害是多少，我们说过$$\text{总伤害}=\text{力度}\times \text{单位力度伤害}$$不过，在这里要注意使时间的变化。比如在第$6$秒时，$h[t]$变成了$h[t-6]$。四次攻击的伤害可以表示成：
-![](pic/signal/h(t-0).svg )
-![](pic/signal/h(t-1).svg )
-![](pic/signal/h(t-3).svg )
-![](pic/signal/h(t-6).svg )
+![h(t-0)](https://tva2.sinaimg.cn/mw690/94aee95bgy1h317ey8jztj20w00o03zu.jpg)
+![h(t-1)](https://tvax1.sinaimg.cn/mw690/94aee95bgy1h317f8efhlj20w00o0wfv.jpg )
+![h(t-3)](https://tva3.sinaimg.cn/mw690/94aee95bgy1h317fjj8uhj20w00o0wfz.jpg)
+![h(t-6)](https://tvax2.sinaimg.cn/mw690/94aee95bgy1h317fvruqrj20w00o00u0.jpg)
 \
 将四张图叠加到一起，就可以得到乱劈风刀法伤害随时间变化的关系图，如所示。
-![乱劈风刀法伤害-时间关系](pic/signal/叠加.svg)
+![乱劈风刀法伤害-时间关系](https://tva3.sinaimg.cn/mw690/94aee95bgy1h317g6o4epj20s00g0ab7.jpg)
 
 我们将乱劈风刀法伤害-时间关系称为$y[t]$，要得到一套乱劈风刀法伤害造成的总伤害，我们只需要在时间尺度上对$y[t]$进行求和得到$\sum_{t=-\infty}^{\infty}y[t]$即可。
 
@@ -45,22 +45,22 @@ $$y[t] = \sum_{k=-\infty}^{\infty}x[k]h[t-k]
 这就是我们认知中的卷积和公式，也可以写成简洁形式$y[t]=x[t]*h[t]$。
 
 在上述叠加的过程中可以看出来，$y[t]$当中的每一项，比如第八秒boss收到的伤害$y[8]$，是由所有$x[k]$在第8秒时的伤害贡献相加的结果的结果。具体来说，在乱劈风刀法第$0$秒的攻击在第$8$秒造成的伤害应该是$x[0]h[8]$，可以表示成图:
-![](pic/signal/卷积过程1.svg)
+![卷积过程1](https://tvax3.sinaimg.cn/mw690/94aee95bgy1h317ge7rmnj20k00q0go3.jpg)
 
 而乱劈风刀法第$1$秒的攻击在第$8$秒造成的伤害应该是是什么呢？花三秒时间思考一下。没错，不是$x[0]h[8]$了，应该是$x[1]h[7]$。因为在$x[1]$攻击发出之后，再过$7$秒就是第$8$秒了，可以表示成图。
-![](pic/signal/卷积过程2.svg)
+![卷积过程2](https://tva2.sinaimg.cn/mw690/94aee95bgy1h317i7ukpdj20k00q0q5f.jpg)
 
 
 所以当考虑所有$x[k]$在第8秒时的伤害贡献时，可以得到。
-![](pic/signal/卷积过程正.svg)
+![卷积过程正](https://tva4.sinaimg.cn/mw690/94aee95bgy1h317gykab1j20k00q0whl.jpg)
 
 再次归纳一下，当我们考虑第$n$秒造成的攻击$y[n]$时，我们考虑每个单次攻击$x[k]$乘以其在$n-k$造成的单位力度伤害，即$h[n-k]$，因为相对于第$k$秒的攻击$x[k]$,在过$n-k$秒就是第$n$秒了。这就是从另一个角度理解卷积和公式$y[t] = \sum_{k=-\infty}^{\infty}x[k]h[t-k]$。不过上图怎么看都有点不舒服，连接线全部拧着(上图省略了$x[k]=0$的连接线)。不如先将$h[k]$(暂时将自变量换个名字)翻转一下变成$h[-k]$，这时得到了图形。
-![](pic/signal/卷积过程反.svg)
+![卷积过程反](https://tvax3.sinaimg.cn/mw690/94aee95bgy1h317h45yxvj20k00q0dj5.jpg)
 
 
 图仍然有点别扭，我们将$h[-k]$向右做一些平移得到$h[n-k]$(不理解为什么是向右平移的同学从$h[-(n+k)]$这个角度思考)，可以得到图:
 
-![$h[-k]$平移之后的求和](pic/signal/卷积过程反移.svg)
+![$h[-k]$平移之后的求和](https://tvax1.sinaimg.cn/mw690/94aee95bgy1h317haf0bej20k00q0mzz.jpg)
 
 这也就是我们在上课和国内教材中经常被教的：卷积就是翻转，平移，求和的过程。
 
