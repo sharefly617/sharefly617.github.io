@@ -1,0 +1,274 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="/img/logo_miccall.png"/>
+	<link rel="shortcut icon" href="/img/logo_miccall.png">
+	
+			    <title>
+    噗噗噗的Blog
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    <meta name="keywords" content="blog" />
+    
+    	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	 
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+    <style type="text/css">
+        body:before {
+          content: ' ';
+          position: fixed;
+          top: 0;
+          background: url('/img/bg.jpg') center 0 no-repeat;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-size: cover; 
+        }
+    </style>
+
+			    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+<meta name="generator" content="Hexo 5.4.2"></head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">噗噗噗的blog</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">主页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">分类</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        <a class="category-link" href="../../../../categories/%E4%BF%A1%E5%8F%B7/">信号</a></li><li><a class="category-link" href="../../../../categories/%E7%BC%96%E7%A8%8B/">编程</a>
+	                    </ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/about/" title="简历">
+		                简历
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/group/" title="团队">
+		                团队
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/img/bg.jpg" title="图库">
+		                图库
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/tag/" title="标签">
+		                标签
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+                    
+                    <li>
+                        <a title="weixin" href="https://space.bilibili.com/66466119" target="_blank" rel="noopener">
+                            <i class="icon fa fa-weixin"></i>
+                        </a>
+                    </li>
+                    
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url(https://tvax3.sinaimg.cn/mw690/94aee95bgy1h2tsmk5ivwj24mo334qv6.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >官方文档没讲清楚？？？Pytorch中神奇函数方法map()</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <p>在python中有一个高级函数叫做map()<br>引用廖雪峰的讲解</p>
+<blockquote>
+<p>如果你读过Google的那篇大名鼎鼎的论文“MapReduce: Simplified Data Processing on Large Clusters”，你就能大概明白map/reduce的概念。<br>我们先看map。map()函数接收两个参数，一个是函数，一个是Iterable，map将传入的函数依次作用到序列的每个元素，并把结果作为新的Iterator返回。<br>举例说明，比如我们有一个函数$f(x)=x^2$，要把这个函数作用在一个list [1, 2, 3, 4, 5, 6, 7, 8, 9]上，就可以用map()实现如下：</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20200721170555544.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NoYXJlNzI3MTg2NjMw,size_16,color_FFFFFF,t_70#pic_center" alt="$f(x)=x2$"><br>代码实现如下：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def f(x):</span><br><span class="line">	 return x * x</span><br><span class="line"> r = map(f, [1, 2, 3, 4, 5, 6, 7, 8, 9])</span><br><span class="line"> list(r)</span><br><span class="line"> [1, 4, 9, 16, 25, 36, 49, 64, 81]</span><br></pre></td></tr></table></figure><br>说的很清楚了，返回的是一个$Iterator$,那么在pytorch中相对torch.Tensor中的每一个element进行函数运算有没有torch的函数呢，我查了下，还真有。来看看官方文档的教程</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">map_(tensor, callable)</span><br><span class="line">Applies callable for each element in self tensor and the given tensor and stores the results in self tensor. </span><br><span class="line">self tensor and the given tensor must be broadcastable.</span><br><span class="line"></span><br><span class="line">The callable should have the signature:</span><br><span class="line">def callable(a, b) -&gt; number</span><br></pre></td></tr></table></figure>
+<p>等等？这是神马？完全没说清楚啊，$callable()$我可以理解，就是可调用的对象。但是这个参数$(a,b)$是哪里来的？？？？$python$中的$map$不是$f$接受$Iteratorable$里面返回的每一个对象吗，返回一个就是一个参数，返回两个就是两个参数啊，这里为啥是$(a,b)$两个参数？？？？<br>假设有一个tensor,我想令每一个元素的操作编程$f = 4\times{x}+10$</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">improt torch</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">f</span>(<span class="params">x</span>): <span class="keyword">return</span> <span class="number">4</span>*x+<span class="number">10</span></span><br><span class="line">torch.randint(<span class="number">0</span>,<span class="number">3</span>,(<span class="number">2</span>,<span class="number">3</span>))</span><br><span class="line"><span class="built_in">print</span>(x)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tensor([[<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">        [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>]])</span><br></pre></td></tr></table></figure>
+<p>这个时候对$x$用上$map_()$函数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x.map_(x,f)</span><br><span class="line"></span><br><span class="line">出现的是这个：TypeError: f() takes <span class="number">1</span> positional argument but <span class="number">2</span> were given</span><br></pre></td></tr></table></figure>
+<p>咦，怎么还真是传入了两个参数啊，这两个参数是啥啊？？<br><strong>好了这里就不卖关子了</strong> ，这两个参数其实就是$Iteratorable$里面返回的每一个对象的两份同样的值，也就是说$a=b$,那我们需要把函数改一下,传入两个参数，但是只要一个就行了，或者使用多参数的形式$*karg$：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">f</span>(<span class="params">x,*y</span>): <span class="keyword">return</span> <span class="number">4</span>*x+<span class="number">10</span></span><br><span class="line">x = torch.randint(<span class="number">0</span>,<span class="number">3</span>,(<span class="number">2</span>,<span class="number">3</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;原来的x是\n&#123;&#125;&#x27;</span>.<span class="built_in">format</span>(x))</span><br><span class="line">x.map_(x,f)</span><br><span class="line"><span class="built_in">print</span>(x)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">原来的x是</span><br><span class="line">tensor([[<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">        [<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>]])</span><br><span class="line">tensor([[<span class="number">14</span>, <span class="number">10</span>, <span class="number">10</span>],</span><br><span class="line">        [<span class="number">18</span>, <span class="number">18</span>, <span class="number">18</span>]])</span><br></pre></td></tr></table></figure>
+<p>这样就完成了我们的目标，代码也变得简洁了很多，是不是很开心呢？</p>
+<p><strong>原创不易，点个赞再走吧！</strong></p>
+
+            </div>
+
+            <!-- Post Comments -->
+            
+    <!-- 使用 DISQUS_CLICK -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+
+<!-- add animation -->
+<style>
+	.disqus_click_btn {
+            line-height: 30px;
+            margin: 0;
+            min-width: 50px;
+            padding: 0 14px;
+            display: inline-block;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            overflow: hidden;
+            will-change: box-shadow;
+            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+            outline: 0;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            border: 0;
+            background: rgba(158, 158, 158, .2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            color: #fff;
+            background-color: #7EC0EE;
+            text-shadow: 0
+        }
+</style>
+	
+<div class="btn_click_load" id="disqus_bt"> 
+    <button class="disqus_click_btn">点击查看评论</button>
+</div>
+
+<!--
+<script type="text/javascript">
+$('.btn_click_load').click(function() {
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'http-miccall-tech'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    document.getElementById('disqus_bt').style.display = "none";
+});
+</script>
+-->
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://example.com/2022/06/02/%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E6%B2%A1%E8%AE%B2%E6%B8%85%E6%A5%9A%EF%BC%9F%EF%BC%9F%EF%BC%9FPytorch%E4%B8%AD%E7%A5%9E%E5%A5%87%E5%87%BD%E6%95%B0%E6%96%B9%E6%B3%95map()_/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://example.com/2022/06/02/%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E6%B2%A1%E8%AE%B2%E6%B8%85%E6%A5%9A%EF%BC%9F%EF%BC%9F%EF%BC%9FPytorch%E4%B8%AD%E7%A5%9E%E5%A5%87%E5%87%BD%E6%95%B0%E6%96%B9%E6%B3%95map()_/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+
+<script type="text/javascript">
+    $('.btn_click_load').click(function() {  //click to load comments
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//http-miccall-tech.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        $('.btn_click_load').css('display','none');
+    });
+</script>
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+
+        </div>
+        <!-- Copyright 版权 start -->
+                <div id="copyright">
+            <ul>
+                <li>&copy;Powered By <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/" style="border-bottom: none;">hexo</a></li>
+                <li>Design: <a target="_blank" rel="noopener" href="http://miccall.tech " style="border-bottom: none;">miccall</a></li>
+            </ul>
+            
+                <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+			
+        </div>
+    </div>
+</body>
+
+
+
+ 	
+</html>

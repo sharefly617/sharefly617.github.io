@@ -1,0 +1,283 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="/img/logo_miccall.png"/>
+	<link rel="shortcut icon" href="/img/logo_miccall.png">
+	
+			    <title>
+    噗噗噗的Blog
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    <meta name="keywords" content="blog" />
+    
+    	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	 
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+    <style type="text/css">
+        body:before {
+          content: ' ';
+          position: fixed;
+          top: 0;
+          background: url('/img/bg.jpg') center 0 no-repeat;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-size: cover; 
+        }
+    </style>
+
+			    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+<meta name="generator" content="Hexo 5.4.2"></head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">噗噗噗的blog</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">主页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">分类</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        <a class="category-link" href="/categories/%E4%BF%A1%E5%8F%B7/">信号</a></li><li><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a>
+	                    </ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/about/" title="简历">
+		                简历
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/group/" title="团队">
+		                团队
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/img/bg.jpg" title="图库">
+		                图库
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/tag/" title="标签">
+		                标签
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+                    
+                    <li>
+                        <a title="weixin" href="https://space.bilibili.com/66466119" target="_blank" rel="noopener">
+                            <i class="icon fa fa-weixin"></i>
+                        </a>
+                    </li>
+                    
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url(https://tva1.sinaimg.cn/mw690/94aee95bgy1h2tsjem77mj21hc0u0hdt.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >MCMC系列：Metropololis-Hasting采样算法，10分钟从零到大神</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <h1 id="MCMC"><a href="#MCMC" class="headerlink" title="MCMC"></a>MCMC</h1><p>面对已知的复杂分布时，仅知其表达式，对其进行采样变得格外棘手（甚至无法采样）。在仿真中，各工具包会提供一些标准分布，MCMC采样方法允许我们通过构造一个马尔科夫链，并借助标准分布，使得以某种接受概率采样的新马尔科夫链的平稳分布为我们的目标复杂分布。</p>
+<h2 id="Metropolis-Hasting"><a href="#Metropolis-Hasting" class="headerlink" title="Metropolis-Hasting"></a>Metropolis-Hasting</h2><p>MCMC中很重要且很实用的一个采样算法就是MH算法。</p>
+<h3 id="MH算法流程-怎么做"><a href="#MH算法流程-怎么做" class="headerlink" title="MH算法流程(怎么做)"></a>MH算法流程(怎么做)</h3><p><img src="https://img-blog.csdnimg.cn/da80fe5bb4c94854b8a02a35b5cb1702.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NoYXJlNzI3MTg2NjMw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<h3 id="这么做为什么行-MH推导"><a href="#这么做为什么行-MH推导" class="headerlink" title="这么做为什么行(MH推导)"></a>这么做为什么行(MH推导)</h3><h4 id="从马尔可夫链谈起-重点版"><a href="#从马尔可夫链谈起-重点版" class="headerlink" title="从马尔可夫链谈起(重点版)"></a>从马尔可夫链谈起(重点版)</h4><p>如何构建一个平稳分布为目标分布马尔科夫链？可在此简要介绍会用到的马尔可夫链的重要性质(假设读者了解马尔科夫链的基本概念)：</p>
+<p><em>稳态分布</em>  <strong>什么是稳态分布呢(stationary/invariant distribution)?</strong> 定义$(X_n)_{n\geq 0}$为马氏链$(\lambda,P)$。当马尔可夫链$(X_n)_{n\geq 0}$的状态分布为$\lambda$时，此时若$\pi$满足</p>
+<script type="math/tex; mode=display">\pi P=\pi</script><p>那么$pi$则是该马尔科夫链的平稳分布。通俗理解即为某一时刻马尔科夫链的状态服从某一个分布之后，再进行转移，其状态仍然服从此分布(服从分布不是状态保持不变)。至此，已经阐明为何可以使用马尔可夫链进行采样。</p>
+<p>但是如何找到平稳分布呢？MH中利用了马尔科夫链的细致平衡方程(detailed<br>balance equations),满足细致平衡方程的的分布就是马氏链的平稳分布。</p>
+<p><strong>定理 1.1</strong>.<br><em>如果存在一个分布$\pi$满足<script type="math/tex">\pi_i P_{ij} = \pi_j P_{ji},</script> 那么$\pi$就是该马氏链的平稳分布。</em></p>
+<p><strong>Proof.</strong> <em><script type="math/tex">\sum_{i} \pi_i P_{ij}=\sum_{i}\pi_j P_{ji}=\pi_j</script> ◻</em></p>
+<h4 id="回到MH算法（Metropolis-Hastings-algorithm）"><a href="#回到MH算法（Metropolis-Hastings-algorithm）" class="headerlink" title="回到MH算法（Metropolis Hastings algorithm）"></a>回到MH算法（Metropolis Hastings algorithm）</h4><p>介绍完马氏链的平稳分布后，可以发现，MH算法就是在构造马氏链满足细致平稳条件的转移概率，使其平稳分布为我们的目标分布。在中的第5行构造了转移的接受概率，马氏链的转移分布由提议分布$q$决定，此时$P_{ij}=q(x_j|x_i)$。考虑$\alpha_{ij}&lt;1$的情况，有</p>
+<script type="math/tex; mode=display">p_i Q_{ij} = p_i P_{ij} \alpha_{ij} =p_i q(x_j|x_i) \frac{p_jq(x_i|x_j)}{p_i q(x_j|x_i)}=p_jq(x_i|x_j)\alpha_{ji}=p_j Q_{ji}</script><p>可以发现这样构造出来的新马氏链(实际上叫做MH链或者MH马氏链)的平稳分布就是需要被采样的目标分布了。那么对这个MH链采样一段时间后(burn<br>in)，MH链会收敛到平稳分布。</p>
+<h4 id="问题再现，再次回到马氏链"><a href="#问题再现，再次回到马氏链" class="headerlink" title="问题再现，再次回到马氏链"></a>问题再现，再次回到马氏链</h4><p>读者不免会产生一定的疑问:对于一个马氏链来说平稳分布一定存在且唯一吗？会不会存在一个马氏链有多个平稳分布的情况呢？老规矩，先说结论：对于有限空间的马尔科夫链，平稳分布一定存在，对于不可约的(状态互通)马尔科夫链，平稳分布就是唯一的。</p>
+<p><strong>Proof.</strong><br><strong>声明！本证明已掏空笔者！！</strong><br>首先解释何为<strong>不可约(状态互通)</strong>，即状态之间能够互通。从状态$i$经过$n$步之后可以到达状态$j$，即$Pr(x_n=j|x_0=i,n&lt;-\infty)&gt;0$。状态矩阵$P^n$中的每一个元素都大于$0$，所以，不可约马氏链的状态矩阵是一个正则矩阵(regular matrix)。[<em>$A$ is called regular if for some $k&gt;1$,$A^k&gt;0$.</em>]根据Perron-Frobenius定理，若一个矩阵$A$是正则矩阵，则</p>
+<ol>
+<li><p>$A$存在一个正实特征值$\lambda_{PF}$，其对应的左、右特征向量也均为正特征向量。</p>
+</li>
+<li><p>$A$的所有其他特征值都存在$\lambda_i &lt; \lambda_{PF}$。</p>
+</li>
+<li><p>$\lambda_{PF}=1$，且其左、右特征向量的模为$1$。</p>
+</li>
+</ol>
+<p>那么马氏链的转移矩阵$P$只有一个特征向量$\pi$能够满足</p>
+<p><script type="math/tex">\pi P=1\cdot\pi</script> ◻<br>证明了不可约的马氏链只一个单独的平稳分布之后，就容易理解为什么满足细致平衡方程的分布就是批评翁分布。至此，MH为什么可行就得到了证明。</p>
+<h4 id="真的结束了吗？补充证明"><a href="#真的结束了吗？补充证明" class="headerlink" title="真的结束了吗？补充证明"></a>真的结束了吗？补充证明</h4><p>真的结束了吗。不妨思考，需要被采样的空间是一个有限空间吗？对目标分布进行采样，明明可以得到无数的采样值。这样之前证明的前提便全部被推翻了呀！<br>在此，引入新的概念，马尔科夫链的另一种分类，countable-state<br>chain，旨在描述类似连续分布采样过程的离散时间无限空间的马尔科夫链。那无限空间的马氏链仍然只有唯一的平稳分布吗。结论：对于不可约的马尔科夫链，如果$\pi P=\pi$有解，那么这个解是唯一的。相反，如果马氏链是正常反的，那么就一定有解。在此不对上述结论进行证明，有意者可以参考\<Stochastic
+Processes:Theory for Applications>的第298页的定理6.3.8.</p>
+
+            </div>
+
+            <!-- Post Comments -->
+            
+    <!-- 使用 DISQUS_CLICK -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+
+<!-- add animation -->
+<style>
+	.disqus_click_btn {
+            line-height: 30px;
+            margin: 0;
+            min-width: 50px;
+            padding: 0 14px;
+            display: inline-block;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            overflow: hidden;
+            will-change: box-shadow;
+            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+            outline: 0;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            border: 0;
+            background: rgba(158, 158, 158, .2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            color: #fff;
+            background-color: #7EC0EE;
+            text-shadow: 0
+        }
+</style>
+	
+<div class="btn_click_load" id="disqus_bt"> 
+    <button class="disqus_click_btn">点击查看评论</button>
+</div>
+
+<!--
+<script type="text/javascript">
+$('.btn_click_load').click(function() {
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'http-miccall-tech'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    document.getElementById('disqus_bt').style.display = "none";
+});
+</script>
+-->
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://example.com/2022/06/02/MCMC%E7%B3%BB%E5%88%97%EF%BC%9AMetropololis-Hasting%E9%87%87%E6%A0%B7%E7%AE%97%E6%B3%95%EF%BC%8C10%E5%88%86%E9%92%9F%E4%BB%8E%E9%9B%B6%E5%88%B0%E5%A4%A7%E7%A5%9E/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://example.com/2022/06/02/MCMC%E7%B3%BB%E5%88%97%EF%BC%9AMetropololis-Hasting%E9%87%87%E6%A0%B7%E7%AE%97%E6%B3%95%EF%BC%8C10%E5%88%86%E9%92%9F%E4%BB%8E%E9%9B%B6%E5%88%B0%E5%A4%A7%E7%A5%9E/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+
+<script type="text/javascript">
+    $('.btn_click_load').click(function() {  //click to load comments
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//http-miccall-tech.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        $('.btn_click_load').css('display','none');
+    });
+</script>
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+
+        </div>
+        <!-- Copyright 版权 start -->
+                <div id="copyright">
+            <ul>
+                <li>&copy;Powered By <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/" style="border-bottom: none;">hexo</a></li>
+                <li>Design: <a target="_blank" rel="noopener" href="http://miccall.tech " style="border-bottom: none;">miccall</a></li>
+            </ul>
+            
+                <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+			
+        </div>
+    </div>
+</body>
+
+
+
+ 	
+</html>
