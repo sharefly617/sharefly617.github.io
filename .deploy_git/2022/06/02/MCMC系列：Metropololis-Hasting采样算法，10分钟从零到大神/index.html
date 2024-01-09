@@ -152,7 +152,7 @@
             <div class="typo" style="padding: 3rem;">
                 <h1 id="MCMC"><a href="#MCMC" class="headerlink" title="MCMC"></a>MCMC</h1><p>面对已知的复杂分布时，仅知其表达式，对其进行采样变得格外棘手（甚至无法采样）。在仿真中，各工具包会提供一些标准分布，MCMC采样方法允许我们通过构造一个马尔科夫链，并借助标准分布，使得以某种接受概率采样的新马尔科夫链的平稳分布为我们的目标复杂分布。</p>
 <h2 id="Metropolis-Hasting"><a href="#Metropolis-Hasting" class="headerlink" title="Metropolis-Hasting"></a>Metropolis-Hasting</h2><p>MCMC中很重要且很实用的一个采样算法就是MH算法。</p>
-<h3 id="MH算法流程-怎么做"><a href="#MH算法流程-怎么做" class="headerlink" title="MH算法流程(怎么做)"></a>MH算法流程(怎么做)</h3><p><img src="https://img-blog.csdnimg.cn/da80fe5bb4c94854b8a02a35b5cb1702.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NoYXJlNzI3MTg2NjMw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<h3 id="MH算法流程-怎么做"><a href="#MH算法流程-怎么做" class="headerlink" title="MH算法流程(怎么做)"></a>MH算法流程(怎么做)</h3><p><img src="../images/MCMC/algorithm.jpg" alt="在这里插入图片描述"></p>
 <h3 id="这么做为什么行-MH推导"><a href="#这么做为什么行-MH推导" class="headerlink" title="这么做为什么行(MH推导)"></a>这么做为什么行(MH推导)</h3><h4 id="从马尔可夫链谈起-重点版"><a href="#从马尔可夫链谈起-重点版" class="headerlink" title="从马尔可夫链谈起(重点版)"></a>从马尔可夫链谈起(重点版)</h4><p>如何构建一个平稳分布为目标分布马尔科夫链？可在此简要介绍会用到的马尔可夫链的重要性质(假设读者了解马尔科夫链的基本概念)：</p>
 <p><em>稳态分布</em>  <strong>什么是稳态分布呢(stationary/invariant distribution)?</strong> 定义$(X_n)_{n\geq 0}$为马氏链$(\lambda,P)$。当马尔可夫链$(X_n)_{n\geq 0}$的状态分布为$\lambda$时，此时若$\pi$满足</p>
 <script type="math/tex; mode=display">\pi P=\pi</script><p>那么$pi$则是该马尔科夫链的平稳分布。通俗理解即为某一时刻马尔科夫链的状态服从某一个分布之后，再进行转移，其状态仍然服从此分布(服从分布不是状态保持不变)。至此，已经阐明为何可以使用马尔可夫链进行采样。</p>
@@ -171,10 +171,9 @@
 <li><p>$\lambda_{PF}=1$，且其左、右特征向量的模为$1$。</p>
 </li>
 </ol>
-<p>那么马氏链的转移矩阵$P$只有一个特征向量$\pi$能够满足</p>
-<p><script type="math/tex">\pi P=1\cdot\pi</script> ◻<br>证明了不可约的马氏链只一个单独的平稳分布之后，就容易理解为什么满足细致平衡方程的分布就是批评翁分布。至此，MH为什么可行就得到了证明。</p>
-<h4 id="真的结束了吗？补充证明"><a href="#真的结束了吗？补充证明" class="headerlink" title="真的结束了吗？补充证明"></a>真的结束了吗？补充证明</h4><p>真的结束了吗。不妨思考，需要被采样的空间是一个有限空间吗？对目标分布进行采样，明明可以得到无数的采样值。这样之前证明的前提便全部被推翻了呀！<br>在此，引入新的概念，马尔科夫链的另一种分类，countable-state<br>chain，旨在描述类似连续分布采样过程的离散时间无限空间的马尔科夫链。那无限空间的马氏链仍然只有唯一的平稳分布吗。结论：对于不可约的马尔科夫链，如果$\pi P=\pi$有解，那么这个解是唯一的。相反，如果马氏链是正常反的，那么就一定有解。在此不对上述结论进行证明，有意者可以参考\<Stochastic
-Processes:Theory for Applications>的第298页的定理6.3.8.</p>
+<p>那么马氏链的转移矩阵$P$只有一个特征向量$\pi$能够满足<br>$\pi P=1\cdot\pi$ ◻<br>证明了不可约的马氏链只一个单独的平稳分布之后，就容易理解为什么满足细致平衡方程的分布就是批评翁分布。至此，MH为什么可行就得到了证明。</p>
+<h4 id="真的结束了吗？补充证明"><a href="#真的结束了吗？补充证明" class="headerlink" title="真的结束了吗？补充证明"></a>真的结束了吗？补充证明</h4><p>真的结束了吗。不妨思考，需要被采样的空间是一个有限空间吗？对目标分布进行采样，明明可以得到无数的采样值。这样之前证明的前提便全部被推翻了呀！<br>在此，引入新的概念，马尔科夫链的另一种分类，countable-state<br>chain，旨在描述类似连续分布采样过程的离散时间无限空间的马尔科夫链。那无限空间的马氏链仍然只有唯一的平稳分布吗。结论：对于不可约的马尔科夫链，如果</p>
+<p><script type="math/tex">\pi P=\pi</script>有解，那么这个解是唯一的。相反，如果马氏链是正常反的，那么就一定有解。在此不对上述结论进行证明，有意者可以参考\<Stochastic processes:theory for applications>的第298页的定理6.3.8.</Stochastic></p>
 
             </div>
 

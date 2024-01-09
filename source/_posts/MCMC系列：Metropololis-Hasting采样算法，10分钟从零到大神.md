@@ -16,7 +16,7 @@ MCMC中很重要且很实用的一个采样算法就是MH算法。
 
 ### MH算法流程(怎么做)
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/da80fe5bb4c94854b8a02a35b5cb1702.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NoYXJlNzI3MTg2NjMw,size_16,color_FFFFFF,t_70#pic_center)
+![在这里插入图片描述](../images/MCMC/algorithm.jpg)
 
 
 
@@ -64,12 +64,13 @@ in)，MH链会收敛到平稳分布。
 3.  $\lambda_{PF}=1$，且其左、右特征向量的模为$1$。
 
 那么马氏链的转移矩阵$P$只有一个特征向量$\pi$能够满足
-$$\pi P=1\cdot\pi$$ ◻
+$\pi P=1\cdot\pi$ ◻
 证明了不可约的马氏链只一个单独的平稳分布之后，就容易理解为什么满足细致平衡方程的分布就是批评翁分布。至此，MH为什么可行就得到了证明。
 
 #### 真的结束了吗？补充证明
 
 真的结束了吗。不妨思考，需要被采样的空间是一个有限空间吗？对目标分布进行采样，明明可以得到无数的采样值。这样之前证明的前提便全部被推翻了呀！
 在此，引入新的概念，马尔科夫链的另一种分类，countable-state
-chain，旨在描述类似连续分布采样过程的离散时间无限空间的马尔科夫链。那无限空间的马氏链仍然只有唯一的平稳分布吗。结论：对于不可约的马尔科夫链，如果$\pi P=\pi$有解，那么这个解是唯一的。相反，如果马氏链是正常反的，那么就一定有解。在此不对上述结论进行证明，有意者可以参考\<Stochastic
+chain，旨在描述类似连续分布采样过程的离散时间无限空间的马尔科夫链。那无限空间的马氏链仍然只有唯一的平稳分布吗。结论：对于不可约的马尔科夫链，如果
+$$\pi P=\pi$$有解，那么这个解是唯一的。相反，如果马氏链是正常反的，那么就一定有解。在此不对上述结论进行证明，有意者可以参考\<Stochastic
 Processes:Theory for Applications>的第298页的定理6.3.8.
