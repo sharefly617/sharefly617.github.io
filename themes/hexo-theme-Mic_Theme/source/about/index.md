@@ -34,10 +34,10 @@
 <!-- <img src="../images/Image_1704799421090.jpg" width="18px"width="30px"> -->
 ## <img src="../images/graduation-cap-solid.svg" width="30px"> Education
 - **Dalian University of Technology**, 2014-2018, 
-[US news Rank 300](https://www.usnews.com/education/best-global-universities/dalian-university-of-technology-500236)
+[US news Rank 300~](https://www.usnews.com/education/best-global-universities/dalian-university-of-technology-500236)
 Bachelor of Process equipment and control engineering, GPA top 10%.
 - **Huazhong University of Science and Technology** , 2018-2021,
-[U.S.News rank 150](https://www.usnews.com/education/best-global-universities/huazhong-university-of-science-and-technology-505190)
+[U.S.News rank 110~](https://www.usnews.com/education/best-global-universities/huazhong-university-of-science-and-technology-505190)
 Master of Information and Communication Engineering.
 - **Huazhong University of Science and Technology** , 2023-now,
 persuing Phd degree of Information and Communication Engineering.
