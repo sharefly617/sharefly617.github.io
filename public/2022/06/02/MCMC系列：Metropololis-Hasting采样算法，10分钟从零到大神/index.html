@@ -145,14 +145,14 @@
 </nav>
 
         <div id="main" >
-            <div class ="post_page_title_img" style="height: 25rem;background-image: url(https://tva1.sinaimg.cn/mw690/94aee95bgy1h2tsjem77mj21hc0u0hdt.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url(/images/MCMC/Thumbnail.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
                 <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >MCMC系列：Metropololis-Hasting采样算法，10分钟从零到大神</h2></a>
             </div>
             <!-- Post -->
             <div class="typo" style="padding: 3rem;">
                 <h1 id="MCMC"><a href="#MCMC" class="headerlink" title="MCMC"></a>MCMC</h1><p>面对已知的复杂分布时，仅知其表达式，对其进行采样变得格外棘手（甚至无法采样）。在仿真中，各工具包会提供一些标准分布，MCMC采样方法允许我们通过构造一个马尔科夫链，并借助标准分布，使得以某种接受概率采样的新马尔科夫链的平稳分布为我们的目标复杂分布。</p>
 <h2 id="Metropolis-Hasting"><a href="#Metropolis-Hasting" class="headerlink" title="Metropolis-Hasting"></a>Metropolis-Hasting</h2><p>MCMC中很重要且很实用的一个采样算法就是MH算法。</p>
-<h3 id="MH算法流程-怎么做"><a href="#MH算法流程-怎么做" class="headerlink" title="MH算法流程(怎么做)"></a>MH算法流程(怎么做)</h3><p><img src="../images/MCMC/algorithm.jpg" alt="在这里插入图片描述"></p>
+<h3 id="MH算法流程-怎么做"><a href="#MH算法流程-怎么做" class="headerlink" title="MH算法流程(怎么做)"></a>MH算法流程(怎么做)</h3><p><img src="/images/MCMC/algorithm.jpg" alt="在这里插入图片描述"></p>
 <h3 id="这么做为什么行-MH推导"><a href="#这么做为什么行-MH推导" class="headerlink" title="这么做为什么行(MH推导)"></a>这么做为什么行(MH推导)</h3><h4 id="从马尔可夫链谈起-重点版"><a href="#从马尔可夫链谈起-重点版" class="headerlink" title="从马尔可夫链谈起(重点版)"></a>从马尔可夫链谈起(重点版)</h4><p>如何构建一个平稳分布为目标分布马尔科夫链？可在此简要介绍会用到的马尔可夫链的重要性质(假设读者了解马尔科夫链的基本概念)：</p>
 <p><em>稳态分布</em>  <strong>什么是稳态分布呢(stationary/invariant distribution)?</strong> 定义$(X_n)_{n\geq 0}$为马氏链$(\lambda,P)$。当马尔可夫链$(X_n)_{n\geq 0}$的状态分布为$\lambda$时，此时若$\pi$满足</p>
 <script type="math/tex; mode=display">\pi P=\pi</script><p>那么$pi$则是该马尔科夫链的平稳分布。通俗理解即为某一时刻马尔科夫链的状态服从某一个分布之后，再进行转移，其状态仍然服从此分布(服从分布不是状态保持不变)。至此，已经阐明为何可以使用马尔可夫链进行采样。</p>

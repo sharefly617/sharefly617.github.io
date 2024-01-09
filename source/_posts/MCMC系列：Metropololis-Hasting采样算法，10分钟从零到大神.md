@@ -3,7 +3,7 @@ title: MCMC系列：Metropololis-Hasting采样算法，10分钟从零到大神
 date: 2022-06-02
 tags: 统计学
 categories: 信号
-thumbnail: https://tva1.sinaimg.cn/mw690/94aee95bgy1h2tsjem77mj21hc0u0hdt.jpg
+thumbnail: /images/MCMC/Thumbnail.jpg
 mathjax: true
 ---
 # MCMC
@@ -16,7 +16,7 @@ MCMC中很重要且很实用的一个采样算法就是MH算法。
 
 ### MH算法流程(怎么做)
 
-![在这里插入图片描述](../images/MCMC/algorithm.jpg)
+![在这里插入图片描述](/images/MCMC/algorithm.jpg)
 
 
 
