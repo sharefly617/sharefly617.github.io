@@ -1,5 +1,6 @@
- <center>
-     <h1>Marv Cheng</h1>
+ <div>
+    <h1>Marv Cheng</h1>
+    <div>
     Mingfeng Cheng, 26, Wuhan, China
      <div>
          <!-- <span>
@@ -22,13 +23,15 @@
              <a href="#">My Blog</a>
          </span> -->
      </div>
- </center>
-
+     <img align='right' src="../images/Image_1704799421090.jpg" width="220" alt="giphy">
+      <div>
+ </div>
+ 
  <!-- ## <img src="../images/info-circle-solid.svg" width="30px"> Personal information 
 
  -  -->
 
-
+<!-- <img src="../images/Image_1704799421090.jpg" width="18px"width="30px"> -->
 ## <img src="../images/graduation-cap-solid.svg" width="30px"> Education
 - **Dalian University of Technology**, 2014-2018, 
 [US news Rank 300](https://www.usnews.com/education/best-global-universities/dalian-university-of-technology-500236)
