@@ -6,6 +6,7 @@ categories: 信号
 thumbnail: https://tva3.sinaimg.cn/mw690/94aee95bgy1h2tsk2u7lej22bc1jk7nx.jpg
 mathjax: true
 ---
+<meta name="referrer" content="no-referrer" />
 本文旨在证明 Trace $\sigma$ algebra 是一个algebra。Trace $\sigma$ algebra 的定义是：
 
 > 假设$E\subseteq  X$，且$\mathscr{A}$是X上的$\sigma$代数，那么

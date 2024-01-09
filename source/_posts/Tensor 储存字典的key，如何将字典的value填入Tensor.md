@@ -6,6 +6,7 @@ categories: 编程
 thumbnail: https://tva3.sinaimg.cn/mw690/94aee95bgy1h2tsl9v8srj21hc0u0k3u.jpg
 mathjax: true
 ---
+<meta name="referrer" content="no-referrer" />
 最近遇到一个问题，假设一个Tensor的元素都是标签（字典的key），这里我们还有一个对应的字典，如果想把key对应的value填回tensor，怎么操作呢？
 当然如果是在numpy中，我们可以循环遍历这个字典，然后修改元素的值，但是在tensor中是没有这么容易可以修改特定的元素的数值的。可能有些同学会自然想到把tensor转换成numpy.array再进行操作即可。这种想法不错，但是在使用keras 或者tensorflow时，在这里我默认大家在进行机器学习。显然循环操作和转换会大大减小效率。
 tf和keras中的gather函数可以解决这个问题，这里我以keras为例。

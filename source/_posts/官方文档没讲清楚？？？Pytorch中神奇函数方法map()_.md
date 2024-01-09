@@ -6,7 +6,7 @@ categories: 编程
 thumbnail: https://tvax3.sinaimg.cn/mw690/94aee95bgy1h2tsmk5ivwj24mo334qv6.jpg
 mathjax: true
 ---
-
+<meta name="referrer" content="no-referrer" />
 在python中有一个高级函数叫做map()
 引用廖雪峰的讲解
 
