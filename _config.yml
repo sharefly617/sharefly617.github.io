@@ -111,16 +111,16 @@ deploy:
   branch: source
 # 最后一段是需要添加的，主要是用来支持latex的，找了半天，也就这个事情费的少点。后面详述
 ## Docs: https://github.com/CHENXCHEN/hexo-renderer-markdown-it-plus
-markdown_it_plus:
-    highlight: true
-    html: true
-    xhtmlOut: true
-    breaks: true
-    langPrefix:
-    linkify: true
-    typographer:
-    quotes: “”‘’
-    pre_class: highlight
+# markdown_it_plus:
+#     highlight: true
+#     html: true
+#     xhtmlOut: true
+#     breaks: true
+#     langPrefix:
+#     linkify: true
+#     typographer:
+#     quotes: “”‘’
+#     pre_class: highlight
 math:
   engine: 'mathjax'
   mathjax:
