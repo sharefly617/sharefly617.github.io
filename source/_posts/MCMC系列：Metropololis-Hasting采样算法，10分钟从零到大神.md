@@ -16,7 +16,7 @@ MCMC中很重要且很实用的一个采样算法就是MH算法。
 
 ### MH算法流程(怎么做)
 
-![在这里插入图片描述](/images/MCMC/algorithm.jpg)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/da80fe5bb4c94854b8a02a35b5cb1702.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NoYXJlNzI3MTg2NjMw,size_16,color_FFFFFF,t_70#pic_center)
 
 
 
