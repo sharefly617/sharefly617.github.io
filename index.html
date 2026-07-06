@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Academic resume of Mingfeng Cheng.">
+    <title>Mingfeng Cheng | Resume</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="page">
+      <header class="hero" id="profile">
+        <div class="hero__content">
+          <p class="eyebrow">Academic Resume</p>
+          <h1 id="profile-name">Resume</h1>
+          <p class="subtitle" id="profile-title"></p>
+          <p class="bio" id="profile-summary"></p>
+          <div class="links" id="profile-links" aria-label="Contact links"></div>
+        </div>
+        <img class="portrait" id="profile-photo" src="myBio.png" alt="Portrait">
+      </header>
+
+      <div id="resume-content" class="markdown">
+        <p class="loading">Loading resume.md...</p>
+      </div>
+    </main>
+
+    <script>
+      const contentEl = document.querySelector("#resume-content");
+
+      function escapeHtml(value) {
+        return value
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;");
+      }
+
+      function inlineMarkdown(value) {
+        let html = escapeHtml(value);
+        html = html.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+        html = html.replace(/\*(.+?)\*/g, "<em>$1</em>");
+        html = html.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noreferrer">$1</a>');
+        html = html.replace(/\[([^\]]+)\]\((mailto:[^\s)]+)\)/g, '<a href="$2">$1</a>');
+        return html;
+      }
+
+      function parseFrontMatter(markdown) {
+        if (!markdown.startsWith("---")) {
+          return [{}, markdown];
+        }
+
+        const end = markdown.indexOf("\n---", 3);
+        if (end === -1) {
+          return [{}, markdown];
+        }
+
+        const raw = markdown.slice(3, end).trim();
+        const body = markdown.slice(end + 4).trim();
+        const data = {};
+
+        raw.split(/\r?\n/).forEach((line) => {
+          const divider = line.indexOf(":");
+          if (divider === -1) return;
+          const key = line.slice(0, divider).trim();
+          const value = line.slice(divider + 1).trim();
+          data[key] = value;
+        });
+
+        return [data, body];
+      }
+
+      function renderMarkdown(markdown) {
+        const lines = markdown.split(/\r?\n/);
+        const html = [];
+        let listType = null;
+        let sectionOpen = false;
+
+        function closeList() {
+          if (listType) {
+            html.push(`</${listType}>`);
+            listType = null;
+          }
+        }
+
+        function closeSection() {
+          closeList();
+          if (sectionOpen) {
+            html.push("</section>");
+            sectionOpen = false;
+          }
+        }
+
+        lines.forEach((line) => {
+          const trimmed = line.trim();
+
+          if (!trimmed) {
+            closeList();
+            return;
+          }
+
+          const heading = trimmed.match(/^(#{2,3})\s+(.+)$/);
+          if (heading) {
+            const level = heading[1].length;
+            if (level === 2) {
+              closeSection();
+              html.push('<section class="section">');
+              sectionOpen = true;
+            } else {
+              closeList();
+            }
+            html.push(`<h${level}>${inlineMarkdown(heading[2])}</h${level}>`);
+            return;
+          }
+
+          const ordered = trimmed.match(/^\d+\.\s+(.+)$/);
+          if (ordered) {
+            if (listType !== "ol") {
+              closeList();
+              html.push("<ol>");
+              listType = "ol";
+            }
+            html.push(`<li>${inlineMarkdown(ordered[1])}</li>`);
+            return;
+          }
+
+          const unordered = trimmed.match(/^[-*]\s+(.+)$/);
+          if (unordered) {
+            if (listType !== "ul") {
+              closeList();
+              html.push("<ul>");
+              listType = "ul";
+            }
+            html.push(`<li>${inlineMarkdown(unordered[1])}</li>`);
+            return;
+          }
+
+          closeList();
+          html.push(`<p>${inlineMarkdown(trimmed)}</p>`);
+        });
+
+        closeSection();
+        return html.join("\n");
+      }
+
+      function setProfile(meta) {
+        const name = meta.name || "Mingfeng Cheng";
+        const title = meta.title || "";
+        const summary = meta.summary || "";
+        const photo = meta.photo || "myBio.png";
+
+        document.title = `${name} | Resume`;
+        document.querySelector("#profile-name").textContent = name;
+        document.querySelector("#profile-title").textContent = title;
+        document.querySelector("#profile-summary").textContent = summary;
+        document.querySelector("#profile-photo").src = photo;
+        document.querySelector("#profile-photo").alt = `Portrait of ${name}`;
+
+        const links = [
+          meta.email ? { label: meta.email, href: `mailto:${meta.email}` } : null,
+          meta.blog ? { label: "Blog", href: meta.blog } : null,
+          meta.github ? { label: "GitHub", href: meta.github } : null
+        ].filter(Boolean);
+
+        document.querySelector("#profile-links").innerHTML = links
+          .map((link) => `<a href="${escapeHtml(link.href)}" ${link.href.startsWith("http") ? 'target="_blank" rel="noreferrer"' : ""}>${escapeHtml(link.label)}</a>`)
+          .join("");
+      }
+
+      fetch("resume.md", { cache: "no-store" })
+        .then((response) => {
+          if (!response.ok) throw new Error("resume.md not found");
+          return response.text();
+        })
+        .then((markdown) => {
+          const [meta, body] = parseFrontMatter(markdown);
+          setProfile(meta);
+          contentEl.innerHTML = renderMarkdown(body);
+        })
+        .catch((error) => {
+          contentEl.innerHTML = `<p class="error">${escapeHtml(error.message)}. Please open this site through a local or GitHub Pages web server.</p>`;
+        });
+    </script>
+  </body>
+</html>
