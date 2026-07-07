@@ -1,38 +1,38 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Academic resume of Mingfeng Cheng.">
-    <title>Mingfeng Cheng | Resume</title>
+    <meta name="description" content="程明峰的学术简历。">
+    <title>程明峰 | 简历</title>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <main class="page">
-      <nav class="language-switch" aria-label="Language switch">
-        <a class="is-active" href="index.html" aria-current="page">English</a>
-        <a href="zh.html">中文</a>
+      <nav class="language-switch" aria-label="语言切换">
+        <a href="index.html">English</a>
+        <a class="is-active" href="zh.html" aria-current="page">中文</a>
       </nav>
       <header class="hero" id="profile">
         <div class="hero__content">
-          <p class="eyebrow" id="profile-eyebrow">Academic Resume</p>
-          <h1 id="profile-name">Resume</h1>
+          <p class="eyebrow" id="profile-eyebrow">学术简历</p>
+          <h1 id="profile-name">简历</h1>
           <p class="subtitle" id="profile-title"></p>
           <p class="bio" id="profile-summary"></p>
-          <div class="links" id="profile-links" aria-label="Contact links"></div>
+          <div class="links" id="profile-links" aria-label="联系方式"></div>
         </div>
-        <img class="portrait" id="profile-photo" src="myBio.jpg" alt="Portrait">
+        <img class="portrait" id="profile-photo" src="myBio.jpg" alt="个人照片">
       </header>
 
       <div id="resume-content" class="markdown">
-        <p class="loading">Loading resume-en.md...</p>
+        <p class="loading">正在加载 resume-zh.md...</p>
       </div>
     </main>
 
     <script>
-      const resumeFile = "resume-en.md";
-      const pageLanguage = "en";
-      const pageLabel = "Resume";
+      const resumeFile = "resume-zh.md";
+      const pageLanguage = "zh-CN";
+      const pageLabel = "简历";
       const contentEl = document.querySelector("#resume-content");
 
       function escapeHtml(value) {
@@ -151,11 +151,11 @@
       }
 
       function setProfile(meta) {
-        const name = meta.name || "Mingfeng Cheng";
+        const name = meta.name || "程明峰";
         const title = meta.title || "";
         const summary = meta.summary || "";
         const photo = meta.photo || "myBio.jpg";
-        const eyebrow = meta.eyebrow || "Academic Resume";
+        const eyebrow = meta.eyebrow || "学术简历";
         const label = meta.pageTitle || pageLabel;
 
         document.title = `${name} | ${label}`;
@@ -165,11 +165,11 @@
         document.querySelector("#profile-title").textContent = title;
         document.querySelector("#profile-summary").textContent = summary;
         document.querySelector("#profile-photo").src = photo;
-        document.querySelector("#profile-photo").alt = `Portrait of ${name}`;
+        document.querySelector("#profile-photo").alt = `${name}个人照片`;
 
         const links = [
           meta.email ? { label: meta.email, href: `mailto:${meta.email}` } : null,
-          meta.blog ? { label: "Blog", href: meta.blog } : null,
+          meta.blog ? { label: "博客", href: meta.blog } : null,
           meta.github ? { label: "GitHub", href: meta.github } : null,
           meta["Google Scholar"] ? { label: "Google Scholar", href: meta["Google Scholar"] } : null,
           meta.googleScholar ? { label: "Google Scholar", href: meta.googleScholar } : null,
@@ -192,7 +192,7 @@
           contentEl.innerHTML = renderMarkdown(body);
         })
         .catch((error) => {
-          contentEl.innerHTML = `<p class="error">${escapeHtml(error.message)}. Please open this site through a local or GitHub Pages web server.</p>`;
+          contentEl.innerHTML = `<p class="error">${escapeHtml(error.message)}。请通过本地或 GitHub Pages Web 服务打开此页面。</p>`;
         });
     </script>
   </body>

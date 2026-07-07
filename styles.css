@@ -39,6 +39,32 @@ a {
   box-shadow: var(--shadow);
 }
 
+.language-switch {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.language-switch a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 5px 11px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #ffffff;
+  color: var(--accent-strong);
+  font-size: 0.92rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.language-switch a.is-active {
+  border-color: rgba(15, 118, 110, 0.42);
+  background: rgba(15, 118, 110, 0.1);
+}
+
 .hero {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 260px;
@@ -218,6 +244,10 @@ ol {
     padding: 24px;
     border-width: 0;
     box-shadow: none;
+  }
+
+  .language-switch {
+    justify-content: flex-start;
   }
 
   .hero {

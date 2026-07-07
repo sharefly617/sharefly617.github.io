@@ -1,6 +1,6 @@
 # Mingfeng Cheng Resume
 
-Static resume website for GitHub Pages. The page reads content from `resume.md`, so future resume updates only need to edit that Markdown file.
+Static bilingual resume website for GitHub Pages. The English page reads `resume-en.md`, and the Chinese page reads `resume-zh.md`.
 
 ## Deploy
 
@@ -15,4 +15,4 @@ The site will be available at:
 
 ## Update Resume
 
-Edit `resume.md` and push the change. GitHub Pages will serve the updated resume after the next deployment.
+Edit `resume-en.md` or `resume-zh.md` and push the change. GitHub Pages will serve the updated resume after the next deployment.
