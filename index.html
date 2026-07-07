@@ -159,7 +159,10 @@
         const links = [
           meta.email ? { label: meta.email, href: `mailto:${meta.email}` } : null,
           meta.blog ? { label: "Blog", href: meta.blog } : null,
-          meta.github ? { label: "GitHub", href: meta.github } : null
+          meta.github ? { label: "GitHub", href: meta.github } : null,
+          meta["Google Scholar"] ? { label: "Google Scholar", href: meta["Google Scholar"] } : null,
+          meta.googleScholar ? { label: "Google Scholar", href: meta.googleScholar } : null,
+          meta.google_scholar ? { label: "Google Scholar", href: meta.google_scholar } : null
         ].filter(Boolean);
 
         document.querySelector("#profile-links").innerHTML = links

@@ -19,10 +19,10 @@ photo: myBio.jpg
 
 ## Publications
 
-1. [**Mingfeng Cheng**, Wei Peng. *Precoding with Linear-Scaling Complexity in Massive MIMO DFRC Systems*.  **IEEE Transactions on Vehicular Technology**.](https://ieeexplore.ieee.org/abstract/document/11520950)
-2. [**Mingfeng Cheng**, Wei Peng. *Outage Probability Constrained Robust Precoding Design for Fluid-Antenna-Enhanced ISAC Systems*.  **IEEE Transactions on Cognitive Communications and Networking**.](https://ieeexplore.ieee.org/document/11516084)
-3. [**Mingfeng Cheng**, Wei Peng. *Joint Antenna Selection and Robust Precoding Design for Multi-Target DFRC*.  **IEEE ICASSP 2026**](https://ieeexplore.ieee.org/document/11464538)
-4. [**Mingfeng Cheng**, Wei Peng. *XL-MIMO Near-Field Localization with Bayesian Message Passing*.  **IEEE ICC 2025**.](https://ieeexplore.ieee.org/document/11162031)
+1. [**Mingfeng Cheng**. *Precoding with Linear-Scaling Complexity in Massive MIMO DFRC Systems*.  **IEEE Transactions on Vehicular Technology**.](https://ieeexplore.ieee.org/abstract/document/11520950)
+2. [**Mingfeng Cheng**. *Outage Probability Constrained Robust Precoding Design for Fluid-Antenna-Enhanced ISAC Systems*.  **IEEE Transactions on Cognitive Communications and Networking**.](https://ieeexplore.ieee.org/document/11516084)
+3. [**Mingfeng Cheng**. *Joint Antenna Selection and Robust Precoding Design for Multi-Target DFRC*.  **IEEE ICASSP 2026**](https://ieeexplore.ieee.org/document/11464538)
+4. [**Mingfeng Cheng**. *XL-MIMO Near-Field Localization with Bayesian Message Passing*.  **IEEE ICC 2025**.](https://ieeexplore.ieee.org/document/11162031)
 ## Research Experience
 
 - TBD
