@@ -3,7 +3,7 @@ name: Mingfeng Cheng
 title: PhD student in Information and Communication Engineering
 summary: Wuhan, China · Wireless Communication · Statistical Learning · Bayesian Inference
 Google Scholar: https://scholar.google.com.hk/citations?user=Y7ZJeu0AAAAJ
-photo: myBio.png
+photo: myBio.jpg
 ---
 
 ## Education
