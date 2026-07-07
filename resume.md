@@ -21,11 +21,10 @@ photo: myBio.png
 
 ## Publications
 
-1. [**Mingfeng Cheng**, Wei Peng. *Gibbs Sampling Based Sparse Bayesian Learning for Direction-of-Arrival Estimation with Impulse Noise Towards 6G*. IEEE ICC Workshops, Rome, Italy, 2023, pp. 1392-1397.](https://ieeexplore.ieee.org/document/10283634)
-2. **Mingfeng Cheng**, Jingjing Geng. *Gaussian Process Particle Filter Based WIFI Signal Tracking*. Journal of Sanmenxia Polytechnic, 2023, 22(01):139-143.
-3. **Mingfeng Cheng**. *Bayesian Based Non-stationary Statistical Channel State Estimation for Massive MIMO System*. Huazhong University of Science and Technology, MA thesis, 2023.
-4. Xiyuan, **Cheng Mingfeng**, et al. *Multi-objective Optimization of Turbulence Promoters Based on BP Neural Network*. Modern Chemical Industry, 2019, 39(06):201-205.
-
+1. [**Mingfeng Cheng**, Wei Peng. *Precoding with Linear-Scaling Complexity in Massive MIMO DFRC Systems*.  IEEE Transactions on Vehicular Technology.](https://ieeexplore.ieee.org/abstract/document/11520950)
+2. [**Mingfeng Cheng**, Wei Peng. *Outage Probability Constrained Robust Precoding Design for Fluid-Antenna-Enhanced ISAC Systems*.  IEEE Transactions on Cognitive Communications and Networking.](https://ieeexplore.ieee.org/document/11516084)
+3. [**Mingfeng Cheng**, Wei Peng. *Joint Antenna Selection and Robust Precoding Design for Multi-Target DFRC*.  IEEE ICASSP 2026](https://ieeexplore.ieee.org/document/11464538)
+4. [**Mingfeng Cheng**, Wei Peng. *XL-MIMO Near-Field Localization with Bayesian Message Passing*.  IEEE ICC 2025.](https://ieeexplore.ieee.org/document/11162031)
 ## Research Experience
 
 - Participated in the project Spatio-temporal Double Non-stationary Channel State Information Acquisition for Massive MIMO System. A probabilistic structured channel model is proposed, combining Hidden Markov Model and variational inference to consider noise. As the number of users and the number of elements in the set of statistical channel states increase, degradation or statistical ambiguity may occur. The problem is modeled as a semidefinite programming problem with nonconvex rank constraints and solved using a low-rank decomposition-based approach.
